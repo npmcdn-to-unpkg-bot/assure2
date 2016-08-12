@@ -4,16 +4,18 @@
           <md-card class="demo-card demo-basic">
 
             <div *ngIf="editMode == 'insert'"><md-toolbar color="primary">Create new RFID Monitor</md-toolbar></div>
-            <div *ngIf="editMode == 'update'"><<md-toolbar color="primary">Edit existing RFID Monitor</md-toolbar></div>
+            <div *ngIf="editMode == 'update'"><md-toolbar color="primary">Edit existing RFID Monitor</md-toolbar></div>
 
             <md-card-content>
 
             <form [formGroup] = "rfidMonitorForm" (ngSubmit)="onSubmit()" >
 
-                <p>
+              <p>
                   <td><md-input class="demo-full-width" placeholder="Monitor Code" style="width: 100%" formControlName="monitorCode"  [(ngModel)]="selectedRfidMonitor.rfid_monitor_code" required></md-input></td>
+              </p>
+              <p>
                   <td><md-input class="demo-full-width" placeholder="Description" style="width: 100%" formControlName="description"  [(ngModel)]="selectedRfidMonitor.description" required></md-input></td>
-                </p>
+              </p>
 
                 <button md-raised-button color="primary" type="submit" [disabled]="!rfidMonitorForm.valid">Save</button>
                 <button md-raised-button color="accent" (click) = "onCancelMonitorEdit()">Cancel</button>
@@ -24,8 +26,12 @@
 
         </div>
 
-    <h2>Existing RFID Monitors</h2><button md-raised-button color="primary" (click) = "onNewMonitor()" name="newMonitor">Create New</button>
-        <br>
+  <md-card>
+    <label>
+      Existing RFID Monitors
+      <button *ngIf="editMode == 'no'" md-raised-button color="primary" (click) = "onNewMonitor()" name="newMonitor">Create New</button>
+    </label>
+  </md-card>
 
         <md-nav-list>
             <md-list-item *ngFor="let rfidMonitor of rfidMonitors"
