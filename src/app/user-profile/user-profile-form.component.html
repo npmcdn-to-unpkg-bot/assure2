@@ -43,14 +43,14 @@
         <h2>Existing User Profiles</h2><button (click) = "onNewUserProfile()" name="newUser">Create New</button>
         <br>
 
-        <ul class="items">
-            <li *ngFor="let UserProfile of UserProfiles"
+        <md-nav-list>
+            <md-list-item *ngFor="let UserProfile of UserProfiles"
                 [class.selected]="UserProfile === selectedUserProfile"
                 (click)="onSelect(UserProfile)">
                 <div class="items">
                     <span class="badge" >{{UserProfile.email}}</span> {{UserProfile.first_name}}
                 </div>
-            </li>
-        </ul>
+            </md-list-item>
+        </md-nav-list>
 </div>
 

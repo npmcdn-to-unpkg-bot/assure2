@@ -1,43 +1,39 @@
 <div class="container">
-
         <div *ngIf="selectedRfidMonitor && editMode != 'no'">
+
+          <md-card class="demo-card demo-basic">
+
+            <div *ngIf="editMode == 'insert'"><md-toolbar color="primary">Create new RFID Monitor</md-toolbar></div>
+            <div *ngIf="editMode == 'update'"><<md-toolbar color="primary">Edit existing RFID Monitor</md-toolbar></div>
+
+            <md-card-content>
+
             <form [formGroup] = "rfidMonitorForm" (ngSubmit)="onSubmit()" >
 
-                <div hidden><label>rfid_monitor_id: </label>{{selectedRfidMonitor.rfid_monitor_id}}</div>
-                <div hidden><label>entity id: </label>{{selectedRfidMonitor.entity_id}}</div>
+                <p>
+                  <td><md-input class="demo-full-width" placeholder="Monitor Code" style="width: 100%" formControlName="monitorCode"  [(ngModel)]="selectedRfidMonitor.rfid_monitor_code" required></md-input></td>
+                  <td><md-input class="demo-full-width" placeholder="Description" style="width: 100%" formControlName="description"  [(ngModel)]="selectedRfidMonitor.description" required></md-input></td>
+                </p>
 
-                <div *ngIf="editMode == 'insert'"><h2>Create new RFID Monitor</h2></div>
-                <div *ngIf="editMode == 'update'"><h2>Edit existing RFID Monitor</h2></div>
+                <button md-raised-button color="primary" type="submit" [disabled]="!rfidMonitorForm.valid">Save</button>
+                <button md-raised-button color="accent" (click) = "onCancelMonitorEdit()">Cancel</button>
 
-                <div class="items">
-                    <label class="badge">Monitor Code</label>
-                    <input formControlName="monitorCode"  [(ngModel)]="selectedRfidMonitor.rfid_monitor_code" placeholder="Monitor Code"  required>
-                </div>
-                <div class="items">
-                    <label class="badge">Description</label>
-                    <input formControlName="description"  [(ngModel)]="selectedRfidMonitor.description" placeholder="Description"  required>
-                </div>
-
-                <button type="submit" class="btn btn-default"
-                        [disabled]="!rfidMonitorForm.valid">Save
-                </button>
-                <button class="btn btn-default"
-                        (click) = "onCancelMonitorEdit()">Cancel
-                </button>
             </form>
+            </md-card-content>
+          </md-card>
+
         </div>
 
-        <h2>Existing RFID Monitors</h2><button (click) = "onNewMonitor()" name="newMonitor">Create New</button>
+    <h2>Existing RFID Monitors</h2><button md-raised-button color="primary" (click) = "onNewMonitor()" name="newMonitor">Create New</button>
         <br>
 
-        <ul class="items">
-            <li *ngFor="let rfidMonitor of rfidMonitors"
+        <md-nav-list>
+            <md-list-item *ngFor="let rfidMonitor of rfidMonitors"
                 [class.selected]="rfidMonitor === selectedRfidMonitor"
                 (click)="onSelect(rfidMonitor)">
                 <span class="badge" >{{rfidMonitor.rfid_monitor_code}}</span> {{rfidMonitor.description}}
-            </li>
-        </ul>
+            </md-list-item>
+        </md-nav-list>
 
 
-</div>
 

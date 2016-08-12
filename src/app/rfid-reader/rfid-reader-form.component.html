@@ -30,13 +30,13 @@
         <h2>Existing RFID Readers</h2><button (click) = "onNewReader()" name="newReader">Create New</button>
         <br>
 
-        <ul class="items">
-            <li *ngFor="let rfidReader of rfidReaders"
+        <md-nav-list>
+            <md-list-item *ngFor="let rfidReader of rfidReaders"
                 [class.selected]="rfidReader === selectedRfidReader"
                 (click)="onSelect(rfidReader)">
                 <span class="badge" >{{rfidReader.rfid_reader_code}}</span> {{rfidReader.description}}
-            </li>
-        </ul>
+            </md-list-item>
+        </md-nav-list>
 
 
 </div>
