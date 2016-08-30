@@ -17,6 +17,7 @@ import {MdButtonModule} from "@angular2-material/button";
 import {MdCardModule} from "@angular2-material/card";
 import {MdInputModule} from "@angular2-material/input";
 import { MdIconModule } from '@angular2-material/icon';
+import {MdToolbarModule} from "@angular2-material/toolbar";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MdIconModule } from '@angular2-material/icon';
     MdCardModule,
     MdInputModule,
     MdListModule,
-    MdIconModule
+    MdIconModule,
+    MdToolbarModule
   ],
   providers: [
     appRoutingProviders,
