@@ -1,16 +1,15 @@
-<h1>{{title}}</h1>
+<md-toolbar color="primary">
+ Angular 2 RC 5 - Assure Test
+</md-toolbar>
 
-<div class="container">
+  <md-card>
+      <button md-raised-button routerLink="/entity" routerLinkActive="active">Entity</button>
+      <button md-raised-button *ngIf="isEntitySelected()" (click)="onSelectRfidMonitor()">RFID Monitor</button>
+      <button md-raised-button *ngIf="isEntitySelected()" (click)="onSelectRfidReader()">RFID Reader</button>
+      <button md-raised-button *ngIf="isEntitySelected()" (click)="onSelectUserProfile()">User Profile</button>
+  </md-card>
 
-  <div>
-    <nav>
-      <a routerLink="/entity" routerLinkActive="active">Entity</a>
-      <a *ngIf="isEntitySelected()" (click)="onSelectRfidMonitor()">RFID Monitor</a>
-      <a *ngIf="isEntitySelected()" (click)="onSelectRfidReader()">RFID Reader</a>
-      <a *ngIf="isEntitySelected()" (click)="onSelectUserProfile()">User Profile</a>
-    </nav>
-  </div>
-  <div>
+  <md-card>
     <router-outlet></router-outlet>
-  </div>
-</div>
+  </md-card>
+
