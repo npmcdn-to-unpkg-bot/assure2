@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class EntityService {
   selectedEntityId: number = 0;
 
-  setEntity(entityId:number){
+  setEntity(entityId: number) {
     this.selectedEntityId = entityId;
   }
 }
