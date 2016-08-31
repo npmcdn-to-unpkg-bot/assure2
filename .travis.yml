@@ -27,4 +27,4 @@ script:
 
 after_script:
 # TODO: - ./node_modules/.bin/grunt remapIstanbul
-# TODO: - ./node_modules/.bin/coveralls < .coverage/lcov.info
+# TODO: ng- ./node_modules/.bin/coveralls < .coverage/lcov.info
